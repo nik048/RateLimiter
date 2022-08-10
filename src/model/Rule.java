@@ -1,27 +1,26 @@
 package model;
 
 public class Rule {
-    RateLimiter entity;
+    String entity;
+    int requestRateLimit;
+    int requestRateWindowMilli;
 
     public int getRequestRateLimit() {
         return requestRateLimit;
     }
 
-    public int getRequestRateWindow() {
-        return requestRateWindow;
+    public int getRequestRateWindowInMilli() {
+        return requestRateWindowMilli;
     }
 
-    int requestRateLimit;
-    int requestRateWindow;
-
-    public Rule(RateLimiter entity, int requestRateLimit, int requestRateWindow) {
+    public Rule(String entity, int requestRateLimit, int requestRateWindow) {
         this.entity = entity;
         this.requestRateLimit = requestRateLimit;
-        this.requestRateWindow = requestRateWindow;
+        this.requestRateWindowMilli = requestRateWindow;
     }
 
 
-    public RateLimiter getEntity() {
+    public String getEntity() {
         return entity;
     }
 }

@@ -18,6 +18,10 @@ public class RuleController {
         );
     }
 
+    public Rule getRule(String key){
+        return this.ruleService.getRule(key);
+    }
+
     public void removeRule(){
 
     }

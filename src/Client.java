@@ -7,9 +7,9 @@ public class Client {
     public static void main(String[] args) {
 
         RuleController ruleController = new RuleController();
-        ruleController.addRule(new Rule(new ApiKeyRateLimiter(EntityType.API_KEY, "X123A-24DDD"),1,10));
-        ruleController.addRule(new Rule(new EndPointRateLimiter(EntityType.API_EP, "/v1/details"), 2, 10));
-        ruleController.addRule(new Rule(new ApiKeyRateLimiter(EntityType.API_KEY, "Y223A-24DD0"),2,10));
+        ruleController.addRule(new Rule("X123A-24DDD",1,10));
+        ruleController.addRule(new Rule("/v1/details", 2, 10));
+        ruleController.addRule(new Rule("Y223A-24DD0",2,10));
 
         Request requestOne = new Request("X123A-24DDD", "/v1/details");
 
@@ -18,10 +18,10 @@ public class Client {
         RateLimitSystemController rms = new RateLimitSystemController();
 
         Response response = rms.mainApiController(requestOne);
-        System.out.printf(Response.getStatusCode());
+        System.out.printf(response.getStatusCode().toString());
 
         Response response2 = rms.mainApiController(requestTwo);
-        System.out.printf(Response.getStatusCode());
+        System.out.printf(response.getStatusCode().toString());
 
     }
 }

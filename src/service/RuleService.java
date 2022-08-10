@@ -1,5 +1,6 @@
 package service;
 
+import model.RateLimiter;
 import model.Rule;
 import repository.RuleRepository;
 
@@ -13,11 +14,7 @@ public class RuleService {
     public void addRule(Rule rule){
         ruleRepository.save(rule.getEntity(), rule);
     }
-
-//    public void reloadRule(){
-//
-//    }
-//    public boolean isRateLimitExausted(){
-//        return true;
-//    }
+    public Rule getRule(String key){
+        return ruleRepository.get(key);
+    }
 }

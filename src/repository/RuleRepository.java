@@ -7,16 +7,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RuleRepository {
-    Map<RateLimiter, Rule> rules = new HashMap<>();
+    Map<String, Rule> rules = new HashMap<>();
 
     public RuleRepository() {
     }
 
-    public void save(RateLimiter rateLimiter, Rule rule){
-        this.rules.put(rateLimiter, rule);
+    public void save(String key, Rule rule){
+        this.rules.put(key, rule);
     }
-//    public void get
-//    public boolean isRateLimitExausted(){
-//
-//    }
+
+    public Rule get(String key){
+        return this.rules.get(key);
+    }
+
+
 }
